@@ -12,9 +12,6 @@ export const ContactsForm = () => {
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
-  let nameInputId = shortid.generate();
-  let numberInputId = shortid.generate();
-
   const handleChance = event => {
     const { name, value } = event.currentTarget;
     switch (name) {
@@ -36,7 +33,6 @@ export const ContactsForm = () => {
       return;
     }
     const contact = {
-      id: shortid.generate(),
       name: name,
       number: number,
     };
@@ -54,7 +50,7 @@ export const ContactsForm = () => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Label htmlFor={nameInputId}>
+        <Label>
           Name
           <Input
             type="text"
@@ -64,10 +60,9 @@ export const ContactsForm = () => {
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
-            id={nameInputId}
           />
         </Label>
-        <Label htmlFor={numberInputId}>
+        <Label>
           Number
           <Input
             type="tel"
@@ -77,7 +72,6 @@ export const ContactsForm = () => {
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
-            id={numberInputId}
           />
         </Label>
         <Button type="submit">Add contact</Button>

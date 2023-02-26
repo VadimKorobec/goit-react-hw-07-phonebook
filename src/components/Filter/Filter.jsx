@@ -11,7 +11,6 @@ export const Filter = () => {
     <>
       <Input
         type="text"
-        name="filter"
         value={filter}
         onChange={event => dispatch(setFilter(event.target.value))}
         placeholder="Search..."

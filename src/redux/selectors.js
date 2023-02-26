@@ -8,7 +8,7 @@ export const getError = state => state.contacts.error;
 
 export const getFilter = state => state.filter;
 
-export const getFilteredContacts = createSelector(
+export const getFilteredConctacts = createSelector(
   [getContacts, getFilter],
   (contacts, filter) => {
     const normalizedFilter = filter.toLowerCase().trim();

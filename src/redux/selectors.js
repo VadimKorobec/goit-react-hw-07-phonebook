@@ -6,7 +6,7 @@ export const getIsLoading = state => state.contacts.IsLoading;
 
 export const getError = state => state.contacts.error;
 
-export const getFilter = state => state.filter;
+export const getFilter = state => state.filter.status;
 
 export const getFilteredConctacts = createSelector(
   [getContacts, getFilter],

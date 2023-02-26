@@ -7,8 +7,6 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 9px;
+  display: block;
+  padding-right: 40px;
 `;

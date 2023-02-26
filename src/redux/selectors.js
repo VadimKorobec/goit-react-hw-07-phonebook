@@ -6,12 +6,12 @@ export const getIsLoading = state => state.contacts.IsLoading;
 
 export const getError = state => state.contacts.error;
 
-export const getStatusFilter = state => state.filter;
+export const getFilter = state => state.filter;
 
 export const getFilteredConctacts = createSelector(
-  [getContacts, getStatusFilter],
+  [getContacts, getFilter],
   (contacts, filter) => {
-    const normalizedFilter = filter.toLowerCase().trim();
+    const normalizedFilter = filter;
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );

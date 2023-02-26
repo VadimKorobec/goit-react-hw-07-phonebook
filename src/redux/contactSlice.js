@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { INITIAL_CONTACTS } from './constants';
+import { fetchContacts } from './operations';
 
 export const contactSlice = createSlice({
   name: 'contacts',
@@ -14,7 +15,7 @@ export const contactSlice = createSlice({
   },
 });
 
-export const contactsReducer = contactSlice.reducer;
+// export const contactsReducer = contactSlice.reducer;
 
 export const { addContact, deleteContact } = contactSlice.actions;
 
@@ -25,15 +26,20 @@ export const contactsSlice = {
     isLoading: false,
     error: null,
   },
-  reducers: {
-    fetchingInProgress(state) {
+  extraReducers: {
+    [fetchContacts.pending](state) {
       state.isLoading = true;
     },
-    fetchingSuccess(state, action) {
+    [fetchContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;
     },
-    fetchingError() {},
+    [fetchContacts.rejected](state, action) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
   },
 };
+
+export const contactsReducer = contactsSlice.reducer;

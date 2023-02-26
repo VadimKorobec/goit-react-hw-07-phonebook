@@ -1,20 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from 'redux/filterSlice';
-import { getFilter } from 'redux/selectors';
+import { searchContact } from 'redux/filterSlice';
+import { selectFilter } from 'redux/selectors';
 import { Input } from './Filter.styled';
 
 export const Filter = () => {
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   const handleChange = event => {
-    dispatch(setFilter(event.target.value));
+    dispatch(searchContact(event.target.value));
   };
 
   return (
     <>
       <Input
         type="text"
+        name="search"
         value={filter}
         onChange={handleChange}
         placeholder="Search..."

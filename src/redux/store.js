@@ -38,19 +38,22 @@
 
 // // export const persistor = persistStore(store);
 
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { contactsReducer } from './contactSlice';
-
-// export const store = configureStore({
-//   reducer: {
-//     contacts: contactsReducer,
-//   },
-// });
-
-const rootReducer = combineReducers({
-  contacts: contactsReducer,
-});
+import { filterReducer } from './filterSlice';
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    contacts: contactsReducer,
+    filter: filterReducer,
+  },
 });
+
+// const rootReducer = combineReducers({
+//   contacts: contactsReducer,
+//   filter: filterReducer,
+// });
+
+// export const store = configureStore({
+//   reducer: rootReducer,
+// });

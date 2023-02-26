@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import shortid from 'shortid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactSlice';
+// import { addContact } from 'redux/contactSlice';
 import { getContacts } from 'redux/selectors';
 import { Button, Form, Input, Label } from './ContactsForm.styled';
+import { addContact } from 'redux/operations';
 
 export const ContactsForm = () => {
   const [name, setName] = useState('');

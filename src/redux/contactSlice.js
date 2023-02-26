@@ -34,7 +34,7 @@ export const contactSlice = createSlice({
     items: [],
     isLoading: false,
     error: null,
-    filter: '',
+    // filter: '',
   },
 
   extraReducers: {
@@ -64,13 +64,13 @@ export const contactSlice = createSlice({
     [deleteContact.rejected]: handleRejected,
   },
 
-  reducers: {
-    setFilter(state, action) {
-      state.filter = action.payload;
-    },
-  },
+  // reducers: {
+  //   setFilter(state, action) {
+  //     state.filter = action.payload;
+  //   },
+  // },
 });
 
-export const { setFilter } = contactSlice.actions;
+// export const { setFilter } = contactSlice.actions;
 
 export const contactsReducer = contactSlice.reducer;
